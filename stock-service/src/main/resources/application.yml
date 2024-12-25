@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: stock-service
+
+server:
+  port: 8081
+
+rabbitmq:
+  queue:
+    order:
+      name: order_queue
+      exchange: order_exchange
+      routing_key: order_routing_key

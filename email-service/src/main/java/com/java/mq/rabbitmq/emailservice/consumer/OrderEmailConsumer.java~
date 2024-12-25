@@ -1,0 +1,15 @@
+package com.java.mq.rabbitmq.emailservice.consumer;
+
+import org.slf4j.Logger;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Service;
+
+@Service
+public class OrderEmailConsumer {
+    private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(OrderEmailConsumer.class);
+
+    @RabbitListener(queues = "${rabbitmq.queue.email.name}")
+    public void consume(String message) {
+        LOGGER.info("OrderEmailConsumer: " + message);
+    }
+}
